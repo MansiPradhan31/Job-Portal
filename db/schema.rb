@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_25_170527) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_31_033313) do
   create_table "applications", force: :cascade do |t|
     t.integer "job_id", null: false
     t.integer "user_id", null: false
@@ -46,7 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_25_170527) do
     t.string "username"
     t.string "email"
     t.string "password"
-    t.string "role"
+    t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
