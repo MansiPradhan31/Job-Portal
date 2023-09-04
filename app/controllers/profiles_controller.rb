@@ -30,11 +30,13 @@ class ProfilesController < ApplicationController
   private
 
   def set_profile
-    @profile = Profile.find(params[:id])
-    render json: @profile.errors, status: 404 if @profile.nil? 
+    @profile = Profile.find_by(id: params[:id])
+    unless @profile
+      render json: {error: 'Profile not found'}, status: :not_found
+    end 
   end
     
   def user_params
-    params.permit(:bio, :skills, :experience)
+    params.permit(:user_id ,:bio, :skills, :experience)
   end
 end

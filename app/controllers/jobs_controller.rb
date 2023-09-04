@@ -35,11 +35,13 @@ class JobsController < ApplicationController
   private
 
   def set_job
-    @job = Job.find(params[:id])
-    render json: @job.errors, status: 404 if @job.nil? 
+    @job = Job.find_by(id: params[:id])
+    unless @job
+      render json: {error: 'Job not found'}, status: :not_found
+    end 
   end
     
   def user_params
-    params.permit(:job_title, :job_description, :location, :salary)
+    params.permit(:user_id, :job_title, :job_description, :location, :salary)
   end
 end

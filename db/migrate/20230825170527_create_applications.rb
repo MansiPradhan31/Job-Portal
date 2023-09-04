@@ -3,7 +3,7 @@ class CreateApplications < ActiveRecord::Migration[7.0]
     create_table :applications do |t|
       t.references :job, null: false, foreign_key: true
       t.references :user, null: false, foreign_key: true
-      t.string :status, default: 'applied'
+      t.integer :status, default: 0
 
       t.timestamps
     end

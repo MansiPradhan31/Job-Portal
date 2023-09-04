@@ -1,5 +1,6 @@
 class JobRecruiter < User
-    # Additional attributes and methods specific to job recruiters
-    has_one :profile
-  end
+  has_one :profile
+  has_many :jobs
+
+end
   
